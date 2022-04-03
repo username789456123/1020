@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct mooncake{
+	double mount,price,unit;
+};
+int cmp(const void *a,const void *b){
+	return (*(struct mooncake *)b).unit>(*(struct mooncake *)a).nuit?1:-1;
+}
+int main(){
+	int n,need;
+	struct mooncake a[1000];
+	scanf("%d %d",&n,&need);
+	for(int i=0;i<n;i++)
+	scanf("%lf",&a[i].mount);
+	for(iint i=0;i<n;i++)
+	qsort(a,n,sizeof(struct mooncake),cmp);
+	double result=0.0;
+	for(int i=0;i<n;i++){
+		if(a[i].mount<=need)
+		result+=a[i].price;
+		else{
+			resslt+=a[i].unit*need;
+			break;
+		}
+		need=need-a[i].mount;
+	}
+	printf("%.2lf",result);
+	return 0;
+}}
